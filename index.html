@@ -158,7 +158,13 @@
   }
 
   /* ---------- catalog card ---------- */
-  .card-wrap{padding-top:0}
+  .card-wrap{padding-top:3.2rem}
+  .card-head-title{
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(1.6rem,3vw,2.1rem);
+    max-width:38rem;margin:0 auto 1.6rem;
+  }
+  .card-head-title .numeral{color:var(--red-ink);margin-right:.6rem}
   .catalog-card{
     max-width:38rem;margin:0 auto;
     background:#f6efdc;
@@ -276,7 +282,7 @@
   <!-- PLATE -->
   <figure class="plate">
     <div class="frame">
-      <img src="intercognix-hero.jpg" alt="A dark library corridor at night; a golden thread of light arcs between two glowing books on opposite shelves." loading="lazy">
+      <img src="intercognix-hero.jpg" alt="A dark library corridor at night; a golden thread of light arcs between two glowing books on opposite shelves.">
     </div>
     <figcaption>Plate I. — The unlit corridor. Two known things, and the bridge nobody had seen.</figcaption>
   </figure>
@@ -332,6 +338,7 @@
 
   <!-- III. THE WORD -->
   <section class="card-wrap" id="word">
+    <h2 class="card-head-title"><span class="numeral">III.</span>The Word</h2>
     <div class="catalog-card">
       <div class="head">
         <span class="term">Intercognix</span>
