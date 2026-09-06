@@ -36,20 +36,37 @@
 
      TO ADD A NEW SPECIMEN:
      1. Copy the <a class="cat-row"> template below (marked TEMPLATE).
-     2. Give it the next number (4 digits: 0002, 0003, …), title,
-        halls, and href to its candidate page (intercognix-0002.html …).
+     2. Give it the NEXT number in the sequence — 4 digits, never
+        reused, never renumbered (0001…0005 are taken; the next is
+        0006). Set its title, halls, and href to its candidate page
+        (intercognix-0006.html …).
      3. Fill data-s with lowercase searchable words: number, title,
         both disciplines, key terms.
-     4. Add newest entries at the TOP of the list.
-     5. Update the same specimen as a teaser card in index.html
-        (keep only the 3 newest there).
-     6. In the new candidate page, update <link rel="canonical">,
+     4. Fill data-cat with the TWO discipline families the specimen
+        bridges, space separated, drawn ONLY from this fixed set:
+           life       — life sciences (biology, medicine, ecology)
+           physical   — physical sciences (physics, chemistry, earth)
+           formal     — formal & computational (maths, CS, logic, ML)
+           social     — social sciences (sociology, economics, psych)
+           law        — law & governance (legal doctrine, institutions)
+           humanities — humanities (history, philosophy, theology, arts)
+        Do NOT invent a seventh family: the chart is a part-to-whole
+        figure and stops being readable past six slices. A discipline
+        that fits none of these should be filed under its nearest
+        neighbour, or the whole taxonomy revised deliberately.
+     5. Add newest entries at the TOP of the list.
+     6. Update the same specimen as a teaser card in index.html
+        (that file keeps up to about 8 of the newest).
+     7. In the new candidate page, update <link rel="canonical">,
         the og:url / og:title / og:description tags, and the JSON-LD
         headline+url to match the new file name and title.
-     7. In the new candidate page, edit the data-share-text attribute
+     8. In the new candidate page, edit the data-share-text attribute
         on the <aside class="circulate"> — one sentence describing that
         specimen. The share links build themselves from it.
      The search box needs no maintenance — it reads data-s.
+     The pie chart needs no maintenance — it reads data-cat, retallies
+     on load, and redraws itself. Colours are a fixed, validated order
+     (see PALETTE below); a family always keeps its own colour.
      ============================================================ */
   :root{
     --paper:#efe6d0;
@@ -169,6 +186,54 @@
   }
   .catalogue.no-match .empty{display:block}
 
+  /* ---------- the halls represented (part-to-whole figure) ----------
+     PALETTE — fixed order, do not reorder or recolour. These six were
+     checked for lightness band, chroma floor, colour-vision separation
+     and contrast against the paper ground; the ORDER is part of what
+     passed, because adjacent slices are the pairs that must stay
+     distinguishable. Each family keeps its colour permanently, so a
+     slice never changes hue when the counts change.
+       humanities #94690c · physical #2f6bb0 · formal   #bd4426
+       life       #2f8452 · social   #9c4fa2 · law      #7d8a2e
+     Colour is never the only cue: every family is also named and
+     counted in the legend beside the figure. ------------------------ */
+  .tally{
+    max-width:64rem;margin:0 auto;
+    padding:0 clamp(1.25rem,4vw,2.5rem) 1.9rem;
+  }
+  .tally-inner{
+    display:grid;grid-template-columns:auto minmax(0,1fr);
+    gap:clamp(1.2rem,3vw,2.4rem);align-items:center;
+    border:1px solid var(--rule);
+    background:rgba(255,250,235,.45);
+    padding:clamp(1.1rem,2.5vw,1.5rem);
+  }
+  @media(max-width:640px){.tally-inner{grid-template-columns:1fr;justify-items:center}}
+  .tally figure{margin:0}
+  .pie{width:clamp(9rem,22vw,11.5rem);height:auto;display:block}
+  .pie path{
+    stroke:var(--paper);stroke-width:2;
+    transition:opacity .18s ease;
+  }
+  .pie:hover path{opacity:.4}
+  .pie path:hover{opacity:1}
+  .tally-legend{display:grid;gap:.38rem;min-width:0}
+  .tally-legend .lg-head{
+    font-family:'IM Fell English',serif;font-size:1.15rem;
+    color:var(--ink);margin-bottom:.15rem;
+  }
+  .lg-item{
+    display:grid;grid-template-columns:.75rem minmax(0,1fr) auto;
+    gap:.65rem;align-items:baseline;font-size:1rem;
+  }
+  .lg-sw{width:.75rem;height:.75rem;border:1px solid rgba(43,33,23,.3)}
+  .lg-name{color:var(--ink);min-width:0}
+  .lg-n{color:var(--ink-faded);font-style:italic;white-space:nowrap}
+  .tally-note{
+    margin-top:.9rem;font-size:.92rem;
+    font-style:italic;color:var(--ink-faded);
+  }
+
   .site-colophon{
     max-width:64rem;margin:0 auto;
     padding:2.2rem clamp(1.25rem,4vw,2.5rem) 3.2rem;
@@ -216,6 +281,20 @@
   <p class="note">Every entry is a candidate insight — two halls of the library, one proposed bridge, and the test that could break it. Entries are recorded newest first, and each remains stamped a candidate until scrutiny says otherwise.</p>
 </div>
 
+<!-- THE HALLS REPRESENTED — drawn by script from the data-cat attributes
+     on the rows below. Nothing here needs editing when a specimen is
+     added; see the PALETTE note in the stylesheet. -->
+<section class="tally" id="tally" hidden>
+  <div class="tally-inner">
+    <figure>
+      <svg class="pie" id="pie" viewBox="0 0 200 200" role="img" aria-labelledby="pieDesc"></svg>
+      <p id="pieDesc" class="visually-hidden" hidden></p>
+    </figure>
+    <div class="tally-legend" id="pieLegend"></div>
+  </div>
+  <p class="tally-note" id="tallyNote"></p>
+</section>
+
 <div class="consult">
   <label for="q">Consult the index:</label>
   <input id="q" type="search" placeholder="a number, a title, a discipline…" autocomplete="off">
@@ -225,9 +304,10 @@
 <main class="catalogue" id="catalogue">
 
   <!-- ============ TEMPLATE — copy, fill, place newest at top ============
-  <a class="cat-row" href="intercognix-0002.html"
-     data-s="0002 short title words discipline-one discipline-two key terms">
-    <span class="rn">№ 0002</span>
+  <a class="cat-row" href="intercognix-0006.html"
+     data-s="0006 short title words discipline-one discipline-two key terms"
+     data-cat="pick TWO of: life physical formal social law humanities">
+    <span class="rn">№ 0006</span>
     <span>
       <span class="rt">Specimen Title Here</span>
       <span class="rh">discipline one × discipline two</span>
@@ -238,7 +318,8 @@
   ==================================================================== -->
 
   <a class="cat-row" href="intercognix-0005.html"
-     data-s="0005 the trespass that becomes a road prescriptive easements property law common law right of way adverse possession biocomputation physarum polycephalum slime mould network optimisation tokyo rail zoning urban planning">
+     data-s="0005 the trespass that becomes a road prescriptive easements property law common law right of way adverse possession biocomputation physarum polycephalum slime mould network optimisation tokyo rail zoning urban planning"
+     data-cat="law life">
     <span class="rn">№ 0005</span>
     <span>
       <span class="rt">The Trespass That Becomes a Road</span>
@@ -248,7 +329,8 @@
   </a>
 
   <a class="cat-row" href="intercognix-0004.html"
-     data-s="0004 the negative space apophasis via negativa negative theology pseudo-dionysius medieval mystical theology high-dimensional machine learning latent space orthogonality contrastive loss negative sampling embeddings curse of dimensionality">
+     data-s="0004 the negative space apophasis via negativa negative theology pseudo-dionysius medieval mystical theology high-dimensional machine learning latent space orthogonality contrastive loss negative sampling embeddings curse of dimensionality"
+     data-cat="humanities formal">
     <span class="rn">№ 0004</span>
     <span>
       <span class="rt">The Negative Space</span>
@@ -258,7 +340,8 @@
   </a>
 
   <a class="cat-row" href="intercognix-0003.html"
-     data-s="0003 the tidy death program slicing weiser static analysis theoretical computer science apoptosis programmed cell death caspases cellular biology operating systems fault tolerance error state">
+     data-s="0003 the tidy death program slicing weiser static analysis theoretical computer science apoptosis programmed cell death caspases cellular biology operating systems fault tolerance error state"
+     data-cat="formal life">
     <span class="rn">№ 0003</span>
     <span>
       <span class="rt">The Tidy Death</span>
@@ -268,7 +351,8 @@
   </a>
 
   <a class="cat-row" href="intercognix-0002.html"
-     data-s="0002 the restless triangle weak ties granovetter structural holes triadic closure economic sociology condensed matter physics frustrated magnetism geometric frustration spin glass spin liquid kagome lattice ising diffusion innovation">
+     data-s="0002 the restless triangle weak ties granovetter structural holes triadic closure economic sociology condensed matter physics frustrated magnetism geometric frustration spin glass spin liquid kagome lattice ising diffusion innovation"
+     data-cat="social physical">
     <span class="rn">№ 0002</span>
     <span>
       <span class="rt">The Restless Triangle</span>
@@ -278,7 +362,8 @@
   </a>
 
   <a class="cat-row" href="intercognix-0001.html"
-     data-s="0001 the unwritten shock absorbers biology constitutional law canalization penumbras waddington durable systems buffers">
+     data-s="0001 the unwritten shock absorbers biology constitutional law canalization penumbras waddington durable systems buffers"
+     data-cat="life law">
     <span class="rn">№ 0001</span>
     <span>
       <span class="rt">The Unwritten Shock Absorbers</span>
@@ -333,6 +418,105 @@
 
   q.addEventListener('input', filter);
   updateCount(rows().length, rows().length);
+</script>
+<script>
+  // THE HALLS REPRESENTED — a part-to-whole figure tallied from the
+  // data-cat attributes on the rows. Every specimen contributes BOTH of
+  // its halls, so the total is twice the number of specimens. Family
+  // order and colours are fixed: a family keeps its hue however the
+  // counts move, and the order is the one the palette was validated in.
+  // Adding a specimen needs no edit here — retally happens on load.
+  (function(){
+    var FAMILIES = [
+      ['humanities', 'Humanities',             '#94690c'],
+      ['physical',   'Physical sciences',      '#2f6bb0'],
+      ['formal',     'Formal & computational', '#bd4426'],
+      ['life',       'Life sciences',          '#2f8452'],
+      ['social',     'Social sciences',        '#9c4fa2'],
+      ['law',        'Law & governance',       '#7d8a2e']
+    ];
+    var sec = document.getElementById('tally'),
+        svg = document.getElementById('pie'),
+        leg = document.getElementById('pieLegend'),
+        note = document.getElementById('tallyNote'),
+        desc = document.getElementById('pieDesc');
+    if (!sec || !svg || !leg) return;
+
+    var count = {}, order = [];
+    FAMILIES.forEach(function(f){ count[f[0]] = 0; order.push(f[0]); });
+
+    var rows = document.querySelectorAll('#catalogue .cat-row');
+    var halls = 0, specimens = 0, unknown = [];
+    Array.prototype.forEach.call(rows, function(r){
+      var raw = (r.getAttribute('data-cat') || '').trim();
+      if (!raw) return;
+      specimens++;
+      raw.split(/\s+/).forEach(function(slug){
+        if (order.indexOf(slug) > -1) { count[slug]++; halls++; }
+        else if (unknown.indexOf(slug) < 0) { unknown.push(slug); }
+      });
+    });
+    if (!halls) return;                       // nothing to draw; stay hidden
+    if (unknown.length && window.console) {
+      console.warn('specimens.html — data-cat value(s) outside the fixed ' +
+                   'family set, not counted: ' + unknown.join(', '));
+    }
+
+    var present = FAMILIES.filter(function(f){ return count[f[0]] > 0; });
+    var NS = 'http://www.w3.org/2000/svg',
+        CX = 100, R = 92, TAU = Math.PI * 2,
+        angle = -Math.PI / 2,                 // start at twelve o'clock
+        frag = document.createDocumentFragment(),
+        pct = function(n){ return Math.round(n / halls * 100); },
+        edge = function(a){
+          return [(CX + R * Math.cos(a)).toFixed(2),
+                  (CX + R * Math.sin(a)).toFixed(2)];
+        };
+
+    present.forEach(function(f){
+      var n = count[f[0]], sweep = TAU * n / halls, end = angle + sweep, el;
+      if (present.length === 1) {             // a lone family: a full disc
+        el = document.createElementNS(NS, 'circle');
+        el.setAttribute('cx', CX); el.setAttribute('cy', CX); el.setAttribute('r', R);
+      } else {
+        var a = edge(angle), b = edge(end);
+        el = document.createElementNS(NS, 'path');
+        el.setAttribute('d', 'M ' + CX + ' ' + CX + ' L ' + a[0] + ' ' + a[1] +
+          ' A ' + R + ' ' + R + ' 0 ' + (sweep > Math.PI ? 1 : 0) + ' 1 ' +
+          b[0] + ' ' + b[1] + ' Z');
+      }
+      el.setAttribute('fill', f[2]);
+      var tip = document.createElementNS(NS, 'title');
+      tip.textContent = f[1] + ' — ' + n + ' of ' + halls + ' halls (' + pct(n) + '%)';
+      el.appendChild(tip);
+      frag.appendChild(el);
+      angle = end;
+    });
+    svg.appendChild(frag);
+
+    var html = '<p class="lg-head">The halls represented</p>';
+    present.forEach(function(f){
+      var n = count[f[0]];
+      html += '<p class="lg-item">' +
+              '<span class="lg-sw" style="background:' + f[2] + '"></span>' +
+              '<span class="lg-name">' + f[1] + '</span>' +
+              '<span class="lg-n">' + n + ' · ' + pct(n) + '%</span></p>';
+    });
+    leg.innerHTML = html;
+
+    var summary = halls + ' hall' + (halls === 1 ? '' : 's') + ' drawn on across ' +
+                  specimens + ' specimen' + (specimens === 1 ? '' : 's') +
+                  ' — every specimen contributes both of its halls, so the ' +
+                  'total is twice the number of entries.';
+    note.textContent = summary;
+    if (desc) desc.textContent = 'Pie chart. ' + present.map(function(f){
+      return f[1] + ', ' + count[f[0]] + ' of ' + halls;
+    }).join('; ') + '.';
+    svg.setAttribute('aria-label', 'Pie chart of discipline families. ' +
+      present.map(function(f){ return f[1] + ': ' + count[f[0]]; }).join(', ') + '.');
+
+    sec.hidden = false;
+  })();
 </script>
 <script>
   // Circulate: builds share links from data-share-text + the canonical URL.
