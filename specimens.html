@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Intercognix Catalogue</title>
+<meta name="description" content="The complete Intercognix catalogue: candidate insights recorded with their disciplines, bridges, and the tests that could break them.">
+<link rel="canonical" href="https://intercognix.com/specimens.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Intercognix">
+<meta property="og:title" content="The Intercognix Catalogue">
+<meta property="og:description" content="The complete Intercognix catalogue of candidate insights — the unknown between the known, recorded specimen by specimen.">
+<meta property="og:url" content="https://intercognix.com/specimens.html">
+<meta property="og:image" content="https://intercognix.com/intercognix-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The Intercognix Catalogue",
+  "url": "https://intercognix.com/specimens.html",
+  "description": "The complete Intercognix catalogue: candidate insights recorded with their disciplines, bridges, and the tests that could break them.",
+  "isPartOf": { "@type": "WebSite", "name": "Intercognix", "url": "https://intercognix.com/" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     INTERCOGNIX — CATALOGUE OF SPECIMENS
+     This page is built to hold hundreds or thousands of entries.
+
+     TO ADD A NEW SPECIMEN:
+     1. Copy the <a class="cat-row"> template below (marked TEMPLATE).
+     2. Give it the next number (4 digits: 0002, 0003, …), title,
+        halls, and href to its candidate page (intercognix-0002.html …).
+     3. Fill data-s with lowercase searchable words: number, title,
+        both disciplines, key terms.
+     4. Add newest entries at the TOP of the list.
+     5. Update the same specimen as a teaser card in index.html
+        (keep only the 3 newest there).
+     6. In the new candidate page, update <link rel="canonical">,
+        the og:url / og:title / og:description tags, and the JSON-LD
+        headline+url to match the new file name and title.
+     The search box needs no maintenance — it reads data-s.
+     ============================================================ */
+  :root{
+    --paper:#efe6d0;
+    --ink:#2b2117;
+    --ink-faded:#6f5f4b;
+    --red-ink:#8c3b24;
+    --gold:#a97e1c;
+    --rule:rgba(43,33,23,.28);
+    --rule-soft:rgba(43,33,23,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 0%, rgba(255,250,235,.55), transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'EB Garamond',Georgia,serif;
+    font-size:1.15rem;line-height:1.7;
+  }
+  ::selection{background:var(--gold);color:var(--paper)}
+  a{color:var(--red-ink);text-decoration:none;border-bottom:1px solid rgba(140,59,36,.4)}
+  a:hover{border-color:var(--red-ink)}
+  a:focus-visible,input:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+
+  /* ---------- intercognix identity strip ---------- */
+  .id-strip{
+    max-width:64rem;margin:0 auto;
+    padding:.85rem clamp(1.25rem,4vw,2.5rem);
+    border-bottom:1px solid var(--rule-soft);
+    font-size:.98rem;color:var(--ink-faded);
+  }
+  .id-strip .w{font-family:'IM Fell English',serif;color:var(--ink);font-size:1.05rem}
+  .id-strip a{white-space:nowrap}
+
+  .running-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    max-width:64rem;margin:0 auto;
+    padding:1.4rem clamp(1.25rem,4vw,2.5rem) 1rem;
+    border-bottom:1px solid var(--rule);
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .running-head .mark{font-family:'IM Fell English',serif;font-size:1.1rem;color:var(--ink);border:none}
+  .running-head .back{font-style:italic;border:none}
+  .running-head .back:hover{color:var(--red-ink)}
+
+  .titleblock{
+    max-width:64rem;margin:0 auto;
+    padding:clamp(2.2rem,5vh,3.6rem) clamp(1.25rem,4vw,2.5rem) 1.8rem;
+  }
+  .titleblock .cat-line{font-size:.9rem;color:var(--ink-faded);font-style:italic}
+  .titleblock h1{
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(2rem,5vw,3.2rem);margin-top:.8rem;
+  }
+  .titleblock .note{
+    margin-top:1rem;max-width:52ch;
+    font-style:italic;color:var(--ink-faded);font-size:1.05rem;
+  }
+
+  .consult{
+    max-width:64rem;margin:0 auto;
+    padding:0 clamp(1.25rem,4vw,2.5rem) 1.6rem;
+    display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;
+  }
+  .consult label{font-style:italic;color:var(--ink-faded);font-size:1.05rem}
+  .consult input{
+    flex:1;min-width:14rem;
+    font-family:'EB Garamond',serif;font-size:1.1rem;
+    color:var(--ink);
+    background:transparent;
+    border:none;border-bottom:1px solid var(--ink);
+    padding:.3rem .1rem;
+  }
+  .consult input::placeholder{color:var(--ink-faded);opacity:.7;font-style:italic}
+  .count{
+    max-width:64rem;margin:0 auto;
+    padding:0 clamp(1.25rem,4vw,2.5rem) .9rem;
+    font-size:.9rem;color:var(--ink-faded);font-style:italic;
+  }
+
+  .catalogue{
+    max-width:64rem;margin:0 auto;
+    padding:0 clamp(1.25rem,4vw,2.5rem) 3rem;
+    border-top:3px double var(--rule);
+  }
+  .cat-row{
+    display:grid;
+    grid-template-columns:6.5rem minmax(0,1fr) auto;
+    column-gap:1.4rem;align-items:baseline;
+    padding:.95rem .4rem;
+    border-bottom:1px solid var(--rule-soft);
+    color:var(--ink);
+  }
+  .cat-row:hover{background:rgba(255,250,235,.6)}
+  .cat-row:hover .rt{color:var(--red-ink)}
+  .cat-row .rn{font-family:'IM Fell English',serif;color:var(--red-ink);white-space:nowrap}
+  .cat-row .rt{font-family:'IM Fell English',serif;font-size:1.2rem;line-height:1.3}
+  .cat-row .rh{display:block;margin-top:.15rem;font-size:.95rem;color:var(--ink-faded);font-style:italic}
+  .cat-row .rs{
+    font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--red-ink);border:1px solid var(--red-ink);
+    padding:.12rem .5rem;opacity:.7;white-space:nowrap;
+  }
+  .cat-row .rs.validated{color:var(--gold);border-color:var(--gold)}
+  .cat-row .rs.retired{color:var(--ink-faded);border-color:var(--ink-faded)}
+  @media(max-width:640px){
+    .cat-row{grid-template-columns:1fr;row-gap:.3rem}
+    .cat-row .rs{justify-self:start}
+  }
+  .empty{
+    display:none;padding:2.2rem .4rem;
+    font-style:italic;color:var(--ink-faded);
+  }
+  .catalogue.no-match .empty{display:block}
+
+  footer{
+    max-width:64rem;margin:0 auto;
+    padding:2rem clamp(1.25rem,4vw,2.5rem) 3.2rem;
+    border-top:3px double var(--rule);
+    font-size:.95rem;color:var(--ink-faded);font-style:italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="running-head">
+  <a class="mark" href="index.html">Intercognix</a>
+  <a class="back" href="index.html">← return to the folio</a>
+</header>
+
+<aside class="id-strip">
+  Part of the <span class="w">Intercognix Catalogue</span> — <em>the unknown between the known</em>. New here? <a href="index.html">Begin with the folio</a>.
+</aside>
+
+<div class="titleblock">
+  <p class="cat-line">the working record of the unknown between the known</p>
+  <h1>The Intercognix Catalogue</h1>
+  <p class="note">Every entry is a candidate insight — two halls of the library, one proposed bridge, and the test that could break it. Entries are recorded newest first, and each remains stamped a candidate until scrutiny says otherwise.</p>
+</div>
+
+<div class="consult">
+  <label for="q">Consult the index:</label>
+  <input id="q" type="search" placeholder="a number, a title, a discipline…" autocomplete="off">
+</div>
+<p class="count" id="count"></p>
+
+<main class="catalogue" id="catalogue">
+
+  <!-- ============ TEMPLATE — copy, fill, place newest at top ============
+  <a class="cat-row" href="intercognix-0002.html"
+     data-s="0002 short title words discipline-one discipline-two key terms">
+    <span class="rn">№ 0002</span>
+    <span>
+      <span class="rt">Specimen Title Here</span>
+      <span class="rh">discipline one × discipline two</span>
+    </span>
+    <span class="rs">unvalidated</span>
+  </a>
+  Status classes: class="rs" (unvalidated) · class="rs validated" · class="rs retired"
+  ==================================================================== -->
+
+  <a class="cat-row" href="intercognix-0001.html"
+     data-s="0001 the unwritten shock absorbers biology constitutional law canalization penumbras waddington durable systems buffers">
+    <span class="rn">№ 0001</span>
+    <span>
+      <span class="rt">The Unwritten Shock Absorbers</span>
+      <span class="rh">developmental biology × constitutional jurisprudence</span>
+    </span>
+    <span class="rs">unvalidated</span>
+  </a>
+
+  <p class="empty">No specimen in the catalogue answers to that. Try a discipline, a number, or a single word of the title.</p>
+</main>
+
+<footer>
+  <p>The catalogue is part of Intercognix — <a href="index.html">return to the folio</a> for the idea, the word, and the practice.</p>
+</footer>
+
+<script>
+  const q = document.getElementById('q');
+  const cat = document.getElementById('catalogue');
+  const rows = () => Array.from(cat.querySelectorAll('.cat-row'));
+  const countEl = document.getElementById('count');
+
+  function updateCount(shown, total){
+    countEl.textContent = shown === total
+      ? total + (total === 1 ? ' specimen entered' : ' specimens entered')
+      : shown + ' of ' + total + ' specimens shown';
+  }
+
+  function filter(){
+    const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    const all = rows();
+    all.forEach(r => {
+      const hay = (r.dataset.s || '') + ' ' + r.textContent.toLowerCase();
+      const hit = terms.every(t => hay.includes(t));
+      r.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    cat.classList.toggle('no-match', shown === 0);
+    updateCount(shown, all.length);
+  }
+
+  q.addEventListener('input', filter);
+  updateCount(rows().length, rows().length);
+</script>
+</body>
+</html>
