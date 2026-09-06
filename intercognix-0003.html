@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tidy Death · Intercognix № 0003</title>
+<meta name="description" content="An Intercognix candidate: what program slicing and programmed cell death may share — and the question that becomes possible only when they are considered together.">
+<link rel="canonical" href="https://intercognix.com/intercognix-0003.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Intercognix">
+<meta property="og:title" content="The Tidy Death · Intercognix № 0003">
+<meta property="og:description" content="An Intercognix candidate: what program slicing and apoptosis may share — and the question that becomes possible only when they are considered together.">
+<meta property="og:url" content="https://intercognix.com/intercognix-0003.html">
+<meta property="og:image" content="https://intercognix.com/intercognix-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Tidy Death — Intercognix № 0003",
+  "url": "https://intercognix.com/intercognix-0003.html",
+  "description": "An Intercognix candidate: what Weiser's program slicing and apoptosis may share, and the question that becomes possible only when they are considered together.",
+  "isPartOf": { "@type": "WebSite", "name": "Intercognix", "url": "https://intercognix.com/" },
+  "about": { "@type": "DefinedTerm", "name": "Intercognix", "url": "https://intercognix.com/" }
+}
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     INTERCOGNIX SPECIMEN TEMPLATE
+     To create the next candidate page: copy this file, change the
+     specimen number, title, and the content inside <main>. Keep
+     the section anatomy: the two known things → the bridge → the
+     question → the test → the record.
+     ============================================================ */
+  :root{
+    --paper:#efe6d0;
+    --ink:#2b2117;
+    --ink-faded:#6f5f4b;
+    --red-ink:#8c3b24;
+    --gold:#a97e1c;
+    --rule:rgba(43,33,23,.28);
+    --rule-soft:rgba(43,33,23,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 0%, rgba(255,250,235,.55), transparent 60%),
+      radial-gradient(ellipse 140% 100% at 50% 100%, rgba(120,95,55,.10), transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'EB Garamond',Georgia,serif;
+    font-size:1.15rem;
+    line-height:1.72;
+  }
+  ::selection{background:var(--gold);color:var(--paper)}
+  a{color:var(--red-ink);text-decoration:none;border-bottom:1px solid rgba(140,59,36,.4)}
+  a:hover{border-color:var(--red-ink)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+  .sc{font-variant:small-caps;letter-spacing:.06em}
+
+  /* ---------- intercognix identity strip ---------- */
+  .id-strip{
+    max-width:64rem;margin:0 auto;
+    padding:.85rem clamp(1.25rem,4vw,2.5rem);
+    border-bottom:1px solid var(--rule-soft);
+    font-size:.98rem;color:var(--ink-faded);
+  }
+  .id-strip .w{font-family:'IM Fell English',serif;color:var(--ink);font-size:1.05rem}
+  .id-strip a{white-space:nowrap}
+
+  .running-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    max-width:64rem;margin:0 auto;
+    padding:1.4rem clamp(1.25rem,4vw,2.5rem) 1rem;
+    border-bottom:1px solid var(--rule);
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .running-head .mark{font-family:'IM Fell English',serif;font-size:1.1rem;color:var(--ink);border:none}
+  .running-head .back{font-style:italic;border:none}
+  .running-head .back:hover{color:var(--red-ink)}
+
+  /* title block with specimen stamp */
+  .running-head nav a{border:none;color:var(--ink-faded);margin-left:1.4rem;font-style:italic;font-size:.95rem}
+  .running-head nav a:hover{color:var(--red-ink)}
+  @media(max-width:640px){.running-head nav a{margin-left:.9rem}}
+
+  .titleblock{
+    max-width:64rem;margin:0 auto;position:relative;
+    padding:clamp(2.5rem,6vh,4.5rem) clamp(1.25rem,4vw,2.5rem) 2.6rem;
+  }
+  .titleblock .cat-line{font-size:.9rem;color:var(--ink-faded);font-style:italic}
+  .titleblock h1{
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.12;
+    max-width:18ch;margin-top:1rem;
+  }
+  .titleblock .plain{
+    margin-top:1.3rem;max-width:46ch;
+    font-style:italic;color:var(--ink-faded);
+    font-size:clamp(1.05rem,1.7vw,1.25rem);
+  }
+  .stamp{
+    position:absolute;top:clamp(2rem,5vh,3.5rem);right:clamp(1.25rem,4vw,2.5rem);
+    transform:rotate(6deg);
+    border:2.5px solid var(--red-ink);color:var(--red-ink);
+    font-family:'EB Garamond',serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;
+    padding:.45rem .9rem;opacity:.8;
+  }
+  @media(max-width:640px){.stamp{position:static;display:inline-block;margin-top:1.2rem;transform:rotate(-2deg)}}
+
+  section{
+    max-width:64rem;margin:0 auto;
+    padding:2.8rem clamp(1.25rem,4vw,2.5rem);
+    border-top:1px solid var(--rule-soft);
+  }
+  .folio{
+    display:grid;
+    grid-template-columns:11rem minmax(0,38rem);
+    column-gap:2.5rem;row-gap:.4rem;
+  }
+  .folio h2{
+    grid-column:1/-1;
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(1.5rem,2.8vw,2rem);
+    margin-bottom:1.4rem;
+  }
+  .folio h2 .numeral{color:var(--red-ink);margin-right:.6rem}
+  .margin-note{
+    grid-column:1;font-size:.92rem;line-height:1.5;
+    font-style:italic;color:var(--red-ink);
+    padding-top:.35rem;text-align:right;
+  }
+  .folio p.main{grid-column:2;margin-bottom:1.35rem}
+  .folio p.main:last-child{margin-bottom:0}
+  @media(max-width:780px){
+    .folio{grid-template-columns:1fr}
+    .margin-note{
+      grid-column:1;text-align:left;
+      border-left:2px solid var(--red-ink);
+      padding:.1rem 0 .1rem .8rem;margin:.2rem 0 .8rem;
+    }
+    .folio p.main{grid-column:1}
+  }
+
+  /* bridge figure */
+  .figure-block{
+    grid-column:2;margin:.6rem 0 1.4rem;
+    border:1px solid var(--rule);
+    padding:1.6rem 1.2rem 1rem;text-align:center;
+    background:rgba(255,250,235,.4);
+  }
+  @media(max-width:780px){.figure-block{grid-column:1}}
+  .figure-block svg{width:100%;max-width:480px;height:auto;overflow:visible}
+  .fig-node{fill:none;stroke:var(--ink);stroke-width:1.3}
+  .fig-small{font-family:'EB Garamond',serif;font-size:13px;fill:var(--ink-faded);font-style:italic}
+  .fig-label{font-family:'IM Fell English',serif;font-size:22px;fill:var(--ink)}
+  .fig-bridge{fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round}
+  .fig-x text{font-family:'IM Fell English',serif;font-size:30px;fill:var(--red-ink)}
+  .fig-x circle{fill:none;stroke:var(--red-ink);stroke-width:.8;stroke-dasharray:3 3}
+  .figure-block figcaption{margin-top:.8rem;font-size:.92rem;font-style:italic;color:var(--ink-faded)}
+
+  /* validation ledger */
+  .ledger{
+    grid-column:2;margin:.4rem 0 1rem;
+    display:grid;grid-template-columns:1fr 1fr;
+    border:1px solid var(--rule);font-size:1.02rem;
+  }
+  @media(max-width:780px){.ledger{grid-column:1}}
+  .ledger>div{padding:1.1rem 1.3rem}
+  .ledger>div:first-child{border-right:1px solid var(--rule)}
+  .ledger h3{font-family:'IM Fell English',serif;font-weight:400;font-size:1.15rem;margin-bottom:.6rem}
+  .ledger p{color:var(--ink-faded);font-size:1rem;line-height:1.6}
+  .ledger .yes h3::before{content:"✓ ";color:var(--gold)}
+  .ledger .no h3::before{content:"✗ ";color:var(--red-ink)}
+  @media(max-width:600px){
+    .ledger{grid-template-columns:1fr}
+    .ledger>div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
+  }
+
+  /* specimen record table */
+  .record{
+    max-width:38rem;margin:0 auto;
+    border:1px solid var(--rule);
+    background:#f6efdc;
+    box-shadow:2px 3px 0 rgba(43,33,23,.12);
+  }
+  .record .rec-head{
+    font-family:'IM Fell English',serif;font-size:1.2rem;
+    padding:.8rem 1.3rem;border-bottom:2px solid var(--red-ink);
+  }
+  .record dl{display:grid;grid-template-columns:11rem 1fr;font-size:1rem}
+  .record dt{
+    padding:.55rem 1.3rem;color:var(--ink-faded);font-style:italic;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .record dd{
+    padding:.55rem 1.3rem .55rem 0;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .record dt:last-of-type,.record dd:last-of-type{border-bottom:none}
+  @media(max-width:560px){
+    .record dl{grid-template-columns:1fr}
+    .record dt{padding-bottom:0;border-bottom:none}
+    .record dd{padding-left:1.3rem}
+  }
+
+  .site-colophon{
+    max-width:64rem;margin:0 auto;
+    padding:2.2rem clamp(1.25rem,4vw,2.5rem) 3.2rem;
+    border-top:3px double var(--rule);
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .site-colophon .tag .w{font-family:'IM Fell English',serif;color:var(--ink);font-size:1.05rem}
+  .site-colophon .legal{margin-top:.5rem;font-style:italic}
+  .site-colophon .f-links{margin-top:.8rem}
+  /* ---------- circulate (share) ---------- */
+  .circulate{
+    max-width:64rem;margin:0 auto;
+    padding:1.6rem clamp(1.25rem,4vw,2.5rem);
+    border-top:1px solid var(--rule-soft);
+    font-size:.98rem;color:var(--ink-faded);
+  }
+  .circulate .c-label{font-style:italic;margin-right:.6rem}
+  .circulate a,.circulate button{
+    font-family:'EB Garamond',serif;font-size:.98rem;
+    color:var(--red-ink);background:none;border:none;cursor:pointer;
+    border-bottom:1px solid rgba(140,59,36,.4);padding:0;
+  }
+  .circulate a:hover,.circulate button:hover{border-color:var(--red-ink)}
+  .circulate .sep{margin:0 .45rem;color:var(--ink-faded)}
+</style>
+</head>
+<body>
+
+<header class="running-head">
+  <a class="mark" href="index.html">Intercognix</a>
+  <nav>
+    <a href="index.html#idea">the idea</a>
+    <a href="index.html#word">the word</a>
+    <a href="index.html#practice">the practice</a>
+    <a href="specimens.html">the catalogue</a>
+  </nav>
+</header>
+
+<aside class="id-strip">
+  Part of the <span class="w">Intercognix Catalogue</span> — <em>the unknown between the known</em>. New here? <a href="index.html">Begin with the folio</a>.
+</aside>
+
+<main>
+
+  <!-- TITLE -->
+  <div class="titleblock">
+    <p class="cat-line">Intercognix № 0003 · entered into the Intercognix Catalogue, anno 2026</p>
+    <h1>The Tidy&nbsp;Death</h1>
+    <p class="plain">Why a cell that kills itself and a compiler that throws away code may be running the same procedure — and what a failing computer might learn from it.</p>
+    <span class="stamp">Candidate · Unvalidated</span>
+  </div>
+
+  <!-- I. THE FIRST KNOWN THING -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">I.</span>The First Known Thing — the program that throws most of itself away</h2>
+
+      <p class="margin-note">computer science · Weiser's program slicing, 1981</p>
+      <p class="main">Here is a technique computer scientists have had for forty years. Ask a narrow question of a large program — at this line, why does this variable hold the wrong value? — and most of the program is irrelevant to the answer. Mark Weiser's program slicing computes exactly which statements can influence the value at that point, through any chain of data or control dependency, and discards every other instruction in the program.</p>
+
+      <p class="margin-note">what remains must still run</p>
+      <p class="main">The discipline is in what may <em>not</em> be removed. A slice is not a summary or a highlight; it is a smaller program that still executes and still reproduces the behaviour of interest. Cut one dependency the point of interest rests on and the slice silently stops being faithful — it runs, and it lies. Slicing is standard static analysis, used daily in debugging, testing and security auditing.</p>
+
+    </div>
+  </section>
+
+  <!-- II. THE SECOND KNOWN THING -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">II.</span>The Second Known Thing — the cell that dismantles itself without spilling</h2>
+
+      <p class="margin-note">biology · apoptosis, programmed cell death</p>
+      <p class="main">Now walk to a different hall of the library entirely. When a cell is damaged, surplus to requirements, or dangerous, it does not simply burst. Bursting — necrosis — spills its contents into the surrounding tissue, and the neighbourhood inflames. Instead the cell runs a program. A cascade of enzymes called caspases takes the cytoskeleton and the organelles apart in order, the DNA is cut at regular intervals, and the cell shrinks and packages itself into sealed, membrane-bound parcels with its nutrients still intact.</p>
+
+      <p class="margin-note">nothing leaks into the neighbours</p>
+      <p class="main">It then displays a chemical flag on its surface — <em>eat me</em> — and a passing macrophage engulfs the parcels and recycles them. Through the whole procedure the membrane never ruptures. The point of apoptosis is not destruction; billions of cells could be destroyed more cheaply. The point is destruction that does not disturb anything around it. This is textbook cell biology.</p>
+
+    </div>
+  </section>
+
+  <!-- III. THE BRIDGE -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">III.</span>The Bridge</h2>
+
+      <p class="margin-note">nobody's textbook contains both chapters</p>
+      <p class="main">Compiler engineers do not read papers on caspase cascades. Cell biologists do not read the static analysis literature. Each fact above is old news in its own hall. But hold them in the same frame, and a shared mechanism appears:</p>
+
+      <figure class="figure-block">
+        <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: program slicing (A) and apoptosis (B) bridged, implying X, a shared principle of state cleanup without side-effect leakage.">
+          <rect class="fig-node" x="22" y="40" width="120" height="70"/>
+          <text class="fig-label" x="82" y="70" text-anchor="middle">A</text>
+          <text class="fig-small" x="82" y="94" text-anchor="middle">program slicing</text>
+          <rect class="fig-node" x="338" y="40" width="120" height="70"/>
+          <text class="fig-label" x="398" y="70" text-anchor="middle">B</text>
+          <text class="fig-small" x="398" y="94" text-anchor="middle">apoptosis</text>
+          <path class="fig-bridge" d="M 142 68 C 220 116, 260 116, 338 68"/>
+          <g class="fig-x">
+            <circle cx="240" cy="104" r="25"/>
+            <text x="240" y="113" text-anchor="middle">X</text>
+          </g>
+        </svg>
+        <figcaption>Fig. — Two halls of the library, one shared mechanism between them.</figcaption>
+      </figure>
+
+      <p class="margin-note">X: state cleanup without side-effect leakage</p>
+      <p class="main">Call it <em>state cleanup without side-effect leakage</em>. Both are deterministic, minimal-destruction procedures, and both are defined less by what they remove than by what they must leave undisturbed: the slice must preserve every dependency its point of interest rests on, the dying cell must preserve its membrane. Bulk is purged; integrity at the boundary is not negotiable. The failure modes rhyme too — an unfaithful slice and a ruptured cell are the same error, a teardown that leaks into what surrounds it. Any sufficiently complex informational system, it seems, needs a way to delete a finished or corrupted thread without the deletion itself becoming the next problem.</p>
+    </div>
+  </section>
+
+  <!-- IV. THE QUESTION -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">IV.</span>The Question That Becomes Possible</h2>
+
+      <p class="margin-note">neither discipline would ask this alone</p>
+      <p class="main">Here is the part that makes this an intercognix candidate rather than a nice metaphor. Operating systems handle a corrupt process crudely. They kill it, or they let a garbage collector reclaim its memory — which says nothing about what went wrong — or they write a core dump, which says everything at enormous cost and tells the neighbouring nodes nothing in time to be useful. None of these is what the cell does. The cell computes a small, faithful, executable account of its own situation and hands it to the neighbourhood on its way out.</p>
+
+      <p class="margin-note">the apoptotic process hypothesis</p>
+      <p class="main"><em>Can high-assurance, fault-tolerant operating systems handle corrupt processes not by garbage collection or task-killing, but through autonomous, cell-like apoptosis — where a dying process synthesises an executable program slice of its own error state, dispatches it to neighbouring nodes, and only then deletes itself?</em></p>
+
+      <p class="margin-note">why it would matter</p>
+      <p class="main">If they can, it would bear on how any system is built that must fail without taking its neighbours with it — spacecraft avionics, medical devices, distributed infrastructure, anything where a component must be able to explain itself as it dies rather than merely stopping.</p>
+    </div>
+  </section>
+
+  <!-- V. THE TEST -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">V.</span>How It Could Be Proven — or Broken</h2>
+
+      <p class="margin-note">a candidate must be breakable, or it is merely poetry</p>
+      <p class="main">An intercognix candidate earns nothing until it names its own test. This one does:</p>
+
+      <div class="ledger">
+        <div class="yes">
+          <h3>What would support it</h3>
+          <p>An operating system architecture implementing apoptotic slicing recovers from malicious zero-day memory corruption with zero cascading reboots, and does so at telemetry bandwidth far below conventional core-dump logging — because the dispatched slice carries only what bears on the fault, and nothing else.</p>
+        </div>
+        <div class="no">
+          <h3>What would break it</h3>
+          <p>If the apoptotic protocol introduces race conditions during teardown, or if synthesising and dispatching the slice costs more latency and resource than a deterministic hypervisor reset would have, then the resemblance was surface-deep, and this specimen is retired.</p>
+        </div>
+      </div>
+
+      <p class="margin-note">the honest status</p>
+      <p class="main">Until such work is done, this remains exactly what its stamp says: a candidate. A surprising structural echo between two halls of the library, waiting for someone with the tools of both to walk the corridor.</p>
+    </div>
+  </section>
+
+  <!-- THE RECORD -->
+  <section>
+    <div class="record">
+      <div class="rec-head">Intercognix Specimen Record</div>
+      <dl>
+        <dt>Specimen</dt><dd>Intercognix № 0003 — The Tidy Death</dd>
+        <dt>Hall A</dt><dd>Theoretical computer science (program slicing; Weiser, 1981)</dd>
+        <dt>Hall B</dt><dd>Cellular biology (apoptosis, programmed cell death)</dd>
+        <dt>The bridge (X)</dt><dd>State cleanup without side-effect leakage — deterministic minimal-destruction procedures that purge bulk while holding the boundary intact</dd>
+        <dt>Emergent question</dt><dd>Can fault-tolerant operating systems retire corrupt processes by apoptosis, dispatching an executable slice of the error state before self-deletion?</dd>
+        <dt>Method</dt><dd>Surfaced via cross-domain semantic proximity; drafted with an advanced language model; framed and curated by the author</dd>
+        <dt>Status</dt><dd><strong>Candidate — unvalidated.</strong> Awaiting prior-art review and empirical testing</dd>
+        <dt>Entered</dt><dd>Anno 2026</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<aside class="circulate" data-share-text="Intercognix № 0003 — what program slicing and programmed cell death may share: how a system deletes part of itself without poisoning the rest. A candidate from the unknown between the known.">
+  <span class="c-label">Circulate this:</span><a data-net="linkedin" target="_blank" rel="noopener" href="#">LinkedIn</a><span class="sep">·</span><a data-net="x" target="_blank" rel="noopener" href="#">X</a><span class="sep">·</span><a data-net="facebook" target="_blank" rel="noopener" href="#">Facebook</a><span class="sep">·</span><a data-net="whatsapp" target="_blank" rel="noopener" href="#">WhatsApp</a><span class="sep">·</span><a data-net="reddit" target="_blank" rel="noopener" href="#">Reddit</a><span class="sep">·</span><a data-net="email" href="#">Email</a><span class="sep">·</span><button type="button" data-net="copy">Copy link</button>
+</aside>
+
+<footer class="site-colophon">
+  <p class="tag"><span class="w">Intercognix</span> — <em>the unknown between the known.</em></p>
+  <p class="legal">Coined by M.&thinsp;R. "Jay" Gontu · © 2026 Intercognix · Every specimen remains a candidate until validated.</p>
+  <p class="f-links">
+    <a href="index.html">The folio</a> ·
+    <a href="specimens.html">The Intercognix Catalogue</a> ·
+    <a href="#" rel="me">The original essay</a> ·
+    <a href="#" rel="me">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+  // Circulate: builds share links from data-share-text + the canonical URL.
+  (function(){
+    var el = document.querySelector('.circulate');
+    if (!el) return;
+    var canon = document.querySelector('link[rel="canonical"]');
+    var url = (canon && canon.href) || location.href;
+    var text = el.getAttribute('data-share-text') || document.title;
+    var eU = encodeURIComponent(url), eT = encodeURIComponent(text);
+    var hrefs = {
+      linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + eU,
+      x: 'https://twitter.com/intent/tweet?text=' + eT + '&url=' + eU,
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + eU,
+      whatsapp: 'https://wa.me/?text=' + eT + '%20' + eU,
+      reddit: 'https://www.reddit.com/submit?url=' + eU + '&title=' + eT,
+      email: 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + eT + '%0A%0A' + eU
+    };
+    el.querySelectorAll('a[data-net]').forEach(function(a){
+      a.href = hrefs[a.getAttribute('data-net')] || url;
+    });
+    var cp = el.querySelector('button[data-net="copy"]');
+    if (cp) cp.addEventListener('click', function(){
+      navigator.clipboard.writeText(url).then(function(){
+        cp.textContent = 'Copied';
+        setTimeout(function(){ cp.textContent = 'Copy link'; }, 2000);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
