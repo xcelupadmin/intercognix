@@ -109,6 +109,10 @@
     font-size:.95rem;color:var(--ink-faded);
   }
   .running-head .mark{font-family:'IM Fell English',serif;font-size:1.1rem;color:var(--ink);border:none}
+  .running-head .mark{white-space:nowrap;flex-shrink:0}
+  .running-head nav a{white-space:nowrap}
+  .running-head .mark img{height:1.6rem;width:auto;vertical-align:middle;margin:-.15rem .55rem 0 0}
+  @media(max-width:640px){.running-head .mark img{height:1.3rem;margin-right:.4rem}}
   .running-head .back{font-style:italic;border:none}
   .running-head .back:hover{color:var(--red-ink)}
 
@@ -263,7 +267,7 @@
 <body>
 
 <header class="running-head">
-  <a class="mark" href="index.html">Intercognix</a>
+  <a class="mark" href="index.html"><img src="intercognix-mark.png" width="173" height="96" alt="">Intercognix</a>
   <nav>
     <a href="index.html#idea">the idea</a>
     <a href="index.html#word">the word</a>
