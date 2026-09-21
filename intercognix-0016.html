@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Deadline That Carries the Claim · Intercognix № 0016</title>
+<meta name="description" content="An Intercognix candidate: what the safety and liveness properties of computer science and the choice of a clinical trial endpoint may share — and the question that becomes possible only when they are considered together.">
+<link rel="canonical" href="https://intercognix.com/intercognix-0016.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Intercognix">
+<meta property="og:title" content="The Deadline That Carries the Claim · Intercognix № 0016">
+<meta property="og:description" content="An Intercognix candidate: what a theorem about what a finite watch can refute and the deadline on a trial endpoint may share — and the question that becomes possible only when they are considered together.">
+<meta property="og:url" content="https://intercognix.com/intercognix-0016.html">
+<meta property="og:image" content="https://intercognix.com/intercognix-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Deadline That Carries the Claim — Intercognix № 0016",
+  "url": "https://intercognix.com/intercognix-0016.html",
+  "description": "An Intercognix candidate: what the safety and liveness properties of computer science and the choice of a clinical trial endpoint may share, and the question that becomes possible only when they are considered together.",
+  "isPartOf": { "@type": "WebSite", "name": "Intercognix", "url": "https://intercognix.com/" },
+  "about": { "@type": "DefinedTerm", "name": "Intercognix", "url": "https://intercognix.com/" }
+}
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     INTERCOGNIX SPECIMEN TEMPLATE
+     To create the next candidate page: copy this file, change the
+     specimen number, title, and the content inside <main>. Keep
+     the section anatomy: the two known things → the bridge → the
+     question → the test → the record.
+     ============================================================ */
+  :root{
+    --paper:#efe6d0;
+    --ink:#2b2117;
+    --ink-faded:#6f5f4b;
+    --red-ink:#8c3b24;
+    --gold:#a97e1c;
+    --rule:rgba(43,33,23,.28);
+    --rule-soft:rgba(43,33,23,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 0%, rgba(255,250,235,.55), transparent 60%),
+      radial-gradient(ellipse 140% 100% at 50% 100%, rgba(120,95,55,.10), transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'EB Garamond',Georgia,serif;
+    font-size:1.15rem;
+    line-height:1.72;
+  }
+  ::selection{background:var(--gold);color:var(--paper)}
+  a{color:var(--red-ink);text-decoration:none;border-bottom:1px solid rgba(140,59,36,.4)}
+  a:hover{border-color:var(--red-ink)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+  .sc{font-variant:small-caps;letter-spacing:.06em}
+
+  /* ---------- intercognix identity strip ---------- */
+  .id-strip{
+    max-width:64rem;margin:0 auto;
+    padding:.85rem clamp(1.25rem,4vw,2.5rem);
+    border-bottom:1px solid var(--rule-soft);
+    font-size:.98rem;color:var(--ink-faded);
+  }
+  .id-strip .w{font-family:'IM Fell English',serif;color:var(--ink);font-size:1.05rem}
+  .id-strip a{white-space:nowrap}
+
+  .running-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    max-width:64rem;margin:0 auto;
+    padding:1.4rem clamp(1.25rem,4vw,2.5rem) 1rem;
+    border-bottom:1px solid var(--rule);
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .running-head .mark{font-family:'IM Fell English',serif;font-size:1.1rem;color:var(--ink);border:none}
+  .running-head .mark{white-space:nowrap;flex-shrink:0}
+  .running-head nav a{white-space:nowrap}
+  .running-head .mark img{height:1.6rem;width:auto;vertical-align:middle;margin:-.15rem .55rem 0 0}
+  @media(max-width:640px){.running-head .mark img{height:1.3rem;margin-right:.4rem}}
+  .running-head .back{font-style:italic;border:none}
+  .running-head .back:hover{color:var(--red-ink)}
+
+  /* title block with specimen stamp */
+  .running-head nav a{border:none;color:var(--ink-faded);margin-left:1.4rem;font-style:italic;font-size:.95rem}
+  .running-head nav a:hover{color:var(--red-ink)}
+  @media(max-width:640px){.running-head nav a{margin-left:.9rem}}
+
+  .titleblock{
+    max-width:64rem;margin:0 auto;position:relative;
+    padding:clamp(2.5rem,6vh,4.5rem) clamp(1.25rem,4vw,2.5rem) 2.6rem;
+  }
+  .titleblock .cat-line{font-size:.9rem;color:var(--ink-faded);font-style:italic}
+  .titleblock h1{
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.12;
+    max-width:18ch;margin-top:1rem;
+  }
+  .titleblock .plain{
+    margin-top:1.3rem;max-width:46ch;
+    font-style:italic;color:var(--ink-faded);
+    font-size:clamp(1.05rem,1.7vw,1.25rem);
+  }
+  .stamp{
+    position:absolute;top:clamp(2rem,5vh,3.5rem);right:clamp(1.25rem,4vw,2.5rem);
+    transform:rotate(6deg);
+    border:2.5px solid var(--red-ink);color:var(--red-ink);
+    font-family:'EB Garamond',serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;
+    padding:.45rem .9rem;opacity:.8;
+  }
+  @media(max-width:640px){.stamp{position:static;display:inline-block;margin-top:1.2rem;transform:rotate(-2deg)}}
+
+  section{
+    max-width:64rem;margin:0 auto;
+    padding:2.8rem clamp(1.25rem,4vw,2.5rem);
+    border-top:1px solid var(--rule-soft);
+  }
+  .folio{
+    display:grid;
+    grid-template-columns:11rem minmax(0,38rem);
+    column-gap:2.5rem;row-gap:.4rem;
+  }
+  .folio h2{
+    grid-column:1/-1;
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(1.5rem,2.8vw,2rem);
+    margin-bottom:1.4rem;
+  }
+  .folio h2 .numeral{color:var(--red-ink);margin-right:.6rem}
+  .margin-note{
+    grid-column:1;font-size:.92rem;line-height:1.5;
+    font-style:italic;color:var(--red-ink);
+    padding-top:.35rem;text-align:right;
+  }
+  .folio p.main{grid-column:2;margin-bottom:1.35rem}
+  .folio p.main:last-child{margin-bottom:0}
+  @media(max-width:780px){
+    .folio{grid-template-columns:1fr}
+    .margin-note{
+      grid-column:1;text-align:left;
+      border-left:2px solid var(--red-ink);
+      padding:.1rem 0 .1rem .8rem;margin:.2rem 0 .8rem;
+    }
+    .folio p.main{grid-column:1}
+  }
+
+  /* bridge figure */
+  .figure-block{
+    grid-column:2;margin:.6rem 0 1.4rem;
+    border:1px solid var(--rule);
+    padding:1.6rem 1.2rem 1rem;text-align:center;
+    background:rgba(255,250,235,.4);
+  }
+  @media(max-width:780px){.figure-block{grid-column:1}}
+  .figure-block svg{width:100%;max-width:480px;height:auto;overflow:visible}
+  .fig-node{fill:none;stroke:var(--ink);stroke-width:1.3}
+  .fig-small{font-family:'EB Garamond',serif;font-size:13px;fill:var(--ink-faded);font-style:italic}
+  .fig-label{font-family:'IM Fell English',serif;font-size:22px;fill:var(--ink)}
+  .fig-bridge{fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round}
+  .fig-x text{font-family:'IM Fell English',serif;font-size:30px;fill:var(--red-ink)}
+  .fig-x circle{fill:none;stroke:var(--red-ink);stroke-width:.8;stroke-dasharray:3 3}
+  .figure-block figcaption{margin-top:.8rem;font-size:.92rem;font-style:italic;color:var(--ink-faded)}
+
+  /* validation ledger */
+  .ledger{
+    grid-column:2;margin:.4rem 0 1rem;
+    display:grid;grid-template-columns:1fr 1fr;
+    border:1px solid var(--rule);font-size:1.02rem;
+  }
+  @media(max-width:780px){.ledger{grid-column:1}}
+  .ledger>div{padding:1.1rem 1.3rem}
+  .ledger>div:first-child{border-right:1px solid var(--rule)}
+  .ledger h3{font-family:'IM Fell English',serif;font-weight:400;font-size:1.15rem;margin-bottom:.6rem}
+  .ledger p{color:var(--ink-faded);font-size:1rem;line-height:1.6}
+  .ledger .yes h3::before{content:"✓ ";color:var(--gold)}
+  .ledger .no h3::before{content:"✗ ";color:var(--red-ink)}
+  @media(max-width:600px){
+    .ledger{grid-template-columns:1fr}
+    .ledger>div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
+  }
+
+  /* specimen record table */
+  .record{
+    max-width:38rem;margin:0 auto;
+    border:1px solid var(--rule);
+    background:#f6efdc;
+    box-shadow:2px 3px 0 rgba(43,33,23,.12);
+  }
+  .record .rec-head{
+    font-family:'IM Fell English',serif;font-size:1.2rem;
+    padding:.8rem 1.3rem;border-bottom:2px solid var(--red-ink);
+  }
+  .record dl{display:grid;grid-template-columns:11rem 1fr;font-size:1rem}
+  .record dt{
+    padding:.55rem 1.3rem;color:var(--ink-faded);font-style:italic;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .record dd{
+    padding:.55rem 1.3rem .55rem 0;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .record dt:last-of-type,.record dd:last-of-type{border-bottom:none}
+  @media(max-width:560px){
+    .record dl{grid-template-columns:1fr}
+    .record dt{padding-bottom:0;border-bottom:none}
+    .record dd{padding-left:1.3rem}
+  }
+
+  .site-colophon{
+    max-width:64rem;margin:0 auto;
+    padding:2.2rem clamp(1.25rem,4vw,2.5rem) 3.2rem;
+    border-top:3px double var(--rule);
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .site-colophon .tag .w{font-family:'IM Fell English',serif;color:var(--ink);font-size:1.05rem}
+  .site-colophon .legal{margin-top:.5rem;font-style:italic}
+  .site-colophon .f-links{margin-top:.8rem}
+  /* ---------- circulate (share) ---------- */
+  .circulate{
+    max-width:64rem;margin:0 auto;
+    padding:1.6rem clamp(1.25rem,4vw,2.5rem);
+    border-top:1px solid var(--rule-soft);
+    font-size:.98rem;color:var(--ink-faded);
+  }
+  .circulate .c-label{font-style:italic;margin-right:.6rem}
+  .circulate a,.circulate button{
+    font-family:'EB Garamond',serif;font-size:.98rem;
+    color:var(--red-ink);background:none;border:none;cursor:pointer;
+    border-bottom:1px solid rgba(140,59,36,.4);padding:0;
+  }
+  .circulate a:hover,.circulate button:hover{border-color:var(--red-ink)}
+  .circulate .sep{margin:0 .45rem;color:var(--ink-faded)}
+</style>
+</head>
+<body>
+
+<header class="running-head">
+  <a class="mark" href="index.html"><img src="intercognix-mark.png" width="173" height="96" alt="">Intercognix</a>
+  <nav>
+    <a href="index.html#idea">the idea</a>
+    <a href="index.html#word">the word</a>
+    <a href="index.html#practice">the practice</a>
+    <a href="specimens.html">the catalogue</a>
+  </nav>
+</header>
+
+<aside class="id-strip">
+  Part of the <span class="w">Intercognix Catalogue</span> — <em>the unknown between the known</em>. New here? <a href="index.html">Begin with the folio</a>.
+</aside>
+
+<main>
+
+  <!-- TITLE -->
+  <div class="titleblock">
+    <p class="cat-line">Intercognix № 0016 · entered into the Intercognix Catalogue, anno 2026</p>
+    <h1>The Deadline That Carries the&nbsp;Claim</h1>
+    <p class="plain">Why the people who prove that programs behave were forced, fifty years ago, to divide every claim about a running system into the kind a finite watch can refute and the kind it can only confirm — while a clinical trial still chooses its endpoint, and its follow-up, as if the two were one kind.</p>
+    <span class="stamp">Candidate · Unvalidated</span>
+  </div>
+
+  <!-- I. THE FIRST KNOWN THING -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">I.</span>The First Known Thing — the two kinds of promise a running system can make</h2>
+
+      <p class="margin-note">concurrency theory · what it means for a program that never stops to be correct</p>
+      <p class="main">A program that computes a value and halts can be judged by its answer. A program that is not meant to halt — an operating system, a network protocol, a controller in a lift — cannot, because there is no answer, only behaviour, and the behaviour is an infinite sequence of states. In 1977 Leslie Lamport, working out how to prove such programs correct, found that every claim anyone wanted to make about them fell into one of two kinds, and he named them from the vocabulary of Petri nets. A <em>safety</em> property says that nothing bad ever happens: two processes are never in the critical section at once, the account is never overdrawn, the lift door never opens between floors. A <em>liveness</em> property says that something good eventually happens: every request is eventually served, the message is eventually delivered, the program eventually terminates. Partial correctness — if it halts, the answer is right — is safety. Termination is liveness. Total correctness is the two together.</p>
+
+      <p class="margin-note">the distinction that turned out to be about observation</p>
+      <p class="main">The pair might have stayed a taxonomy of convenience. In 1985 Bowen Alpern and Fred Schneider made it a theorem, and the theorem is about what a finite observer can know. A property is a safety property exactly when any violation of it shows up in some finite stretch of the run: a bad thing happens at an identifiable moment, and nothing the system does afterwards can undo it. A property is a liveness property exactly when no finite stretch of the run can ever violate it: however long you have watched without the good thing happening, the run can still be continued so that it does. From this the consequences follow mechanically. A finite observation can refute a safety property but never confirm one, since the bad thing may yet come. A finite observation can confirm a liveness property but never refute one, since the good thing may yet come. And any deadline turns the second kind into the first: <em>the request is served within ten seconds</em> is a safety property, because the ten seconds can elapse. Topologically — the observation is credited to Gordon Plotkin — safety properties are the closed sets of runs and liveness properties are the dense ones, and every property is the intersection of one closed set and one dense set. That is the decomposition theorem: any claim whatsoever about a running system is the conjunction of exactly one safety part and exactly one liveness part, and the two parts can be separated.</p>
+
+      <p class="margin-note">and what the field does with it</p>
+      <p class="main">The field does not treat this as philosophy. It sets the division of labour. Safety is checked by monitoring: a finite automaton watches the prefix and raises the alarm at the violating step, and testing, which only ever sees finite runs, can find only safety bugs. Liveness cannot be tested at all; it is established by proof, under explicit assumptions about fairness, or it is bounded and thereby turned into safety and handed to the monitor. The engineer who writes a bounded version knows what has been done. The bound is not part of the requirement; it is a concession to the observer, and the whole content of the original promise now lives in the choice of the number, which the requirement never contained.</p>
+
+    </div>
+  </section>
+
+  <!-- II. THE SECOND KNOWN THING -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">II.</span>The Second Known Thing — the endpoint and its follow-up</h2>
+
+      <p class="margin-note">drug discovery · disease definition, indication choice and endpoint selection</p>
+      <p class="main">Walk to a hall where nothing runs forever, because the patients do not. A programme that has chosen its indication must next choose the thing it will measure, and the choice is understood to be the most consequential in the trial. The endpoint decides the sample size, the duration, the cost, and very often whether the drug is approved at all. The field sorts endpoints by several axes it has worked out carefully: hard against surrogate, clinical against biomarker, single against composite, continuous against binary against time to event. Since 2019 the ICH E9(R1) addendum has added the estimand, requiring a sponsor to say in advance what happens to the measurement when a patient dies, drops out or takes rescue medication. Every one of these axes is about what is measured and in whom. None of them is about the shape of the promise the measurement stands in for.</p>
+
+      <p class="margin-note">the two shapes, unnamed</p>
+      <p class="main">Look at the endpoints themselves. Overall survival is a claim that a bad thing does not happen; progression-free survival is a claim that one of two bad things does not happen; the safety endpoint of every trial — the adverse-event tally — is the same shape again. Each is refuted per patient at an identifiable moment and can never be confirmed per patient, only carried forward as a censoring. Objective response, complete remission, seroconversion, healing of an ulcer, a fall of a fixed size in a symptom score: these are claims that a good thing happens, and they run the other way. Each is confirmed per patient at an identifiable moment and can never be refuted per patient — only carried forward as a non-response, which is why the standing convention for a patient who leaves before the assessment is to count them as having failed. The field calls that non-responder imputation and treats it as a conservative choice about missing data. It is also the exact treatment a monitor gives to a liveness promise at its deadline.</p>
+
+      <p class="margin-note">and where the deadline is chosen</p>
+      <p class="main">Every response endpoint has a deadline, because a trial ends. Response by week twelve; complete remission at end of induction; best overall response by the data cut-off. The oncology criteria in general use require a response to be confirmed at a second assessment four weeks or more after the first, which is itself a small deadline nested inside the large one. The deadline is set by precedent, by the regulator's expectation and by the cost of following patients longer. It is rarely defended on the ground that the promise the drug is making has been stated and the deadline chosen to test that promise, and the field's own record shows the consequence. Response rate is the endpoint behind most accelerated approvals in oncology, and the audits of those approvals — which record, drug by drug, the endpoint of the pivotal trial and the outcome of the confirmatory one — find that fewer than half go on to show benefit on a longer horizon. The explanation the field gives is that response is a surrogate. That is true. It is also incomplete, since progression-free survival is a surrogate too, and it is a claim of the other shape.</p>
+
+    </div>
+  </section>
+
+  <!-- III. THE BRIDGE -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">III.</span>The Bridge</h2>
+
+      <p class="margin-note">no endpoint guidance cites Lamport</p>
+      <p class="main">The halls share nothing. Concurrency theory and clinical endpoint selection have no common literature and no reviews spanning them. Temporal logic has been carried into medicine, but to write down protocols and guidelines precisely and check them for contradiction; it has not been used to ask what kind of claim an endpoint is, and the trialists' vocabulary — surrogate, landmark, durable, censored — was built without the theorem. But both halls are trying to judge, from a finite watch, a promise about a course of events that outlasts the watch, and one of them proved what a finite watch can and cannot do.</p>
+
+      <figure class="figure-block">
+        <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: the safety and liveness decomposition of program properties (A) and the selection of a clinical trial endpoint (B) bridged, implying X, a shared principle that a claim is either refutable or confirmable by finite observation and never both, and that a deadline converts one kind into the other.">
+          <rect class="fig-node" x="22" y="40" width="120" height="70"/>
+          <text class="fig-label" x="82" y="70" text-anchor="middle">A</text>
+          <text class="fig-small" x="82" y="94" text-anchor="middle">safety and liveness</text>
+          <rect class="fig-node" x="338" y="40" width="120" height="70"/>
+          <text class="fig-label" x="398" y="70" text-anchor="middle">B</text>
+          <text class="fig-small" x="398" y="94" text-anchor="middle">endpoint selection</text>
+          <path class="fig-bridge" d="M 142 68 C 220 116, 260 116, 338 68"/>
+          <g class="fig-x">
+            <circle cx="240" cy="104" r="25"/>
+            <text x="240" y="113" text-anchor="middle">X</text>
+          </g>
+        </svg>
+        <figcaption>Fig. — Two halls of the library, one shared mechanism between them.</figcaption>
+      </figure>
+
+      <p class="margin-note">X: what a finite watch can refute it cannot confirm, and the deadline is where the rest of the claim goes</p>
+      <p class="main">Call it <em>prefix refutability</em>. A claim about a course of events is of one of two kinds and not both. Either a finite stretch of observation can refute it and none can confirm it — nothing bad happens — or a finite stretch can confirm it and none can refute it — something good happens. Every claim is the conjunction of one part of each kind, and a deadline is the operation that turns the second kind into the first. From which follows the half that the clinic has not ported, because only the verifiers have had to say exactly what a bounded promise is a promise of: <strong>a finite trial can adjudicate only claims of the first kind, so wherever the clinical claim is of the second kind — the patient responds, the disease is arrested, the remission holds — the endpoint is not that claim but its image under a chosen deadline, and the deadline carries whatever part of the claim the endpoint no longer states.</strong> The between-arm difference in such an endpoint is a difference in the proportion who have reached the good thing <em>by</em> a date. A drug that makes the good thing happen sooner and a drug that makes it happen at all produce the same number at a well-chosen date and different numbers at every other, and nothing in the endpoint's definition distinguishes them. Non-responder imputation is not a missing-data convention. It is the deadline doing its work on the patients the watch did not reach.</p>
+    </div>
+  </section>
+
+  <!-- IV. THE QUESTION -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">IV.</span>The Question That Becomes Possible</h2>
+
+      <p class="margin-note">neither discipline would ask this alone</p>
+      <p class="main">The field already records more than one deadline. Response is assessed at scheduled visits, time to response is recorded, and the cumulative proportion responding in each arm is available from the data set even where only one date is reported. What is not done is to treat the between-arm difference as a function of the deadline and read off its slope at the date the protocol chose — whether the gap between the arms is still opening, has settled, or has begun to close because the control arm is arriving late.</p>
+
+      <p class="margin-note">the deadline hypothesis</p>
+      <p class="main"><em>For endpoints of the confirmable kind, does the slope of the between-arm difference at the protocol's deadline — whether the gap is opening, settled or closing — predict which effects survive a longer horizon, and does it do so where the endpoint's status as a surrogate does not?</em></p>
+
+      <p class="margin-note">why it would matter</p>
+      <p class="main">Because the two things a response endpoint conflates come apart in a direction that can be checked. A gap that has settled by the deadline is an effect on whether; a gap that is closing is an effect on when, and the deadline has caught it at its widest. Under the mechanism the confirmatory failures that look inexplicable — a large response advantage that becomes no survival advantage — should concentrate among trials whose gap was closing at the cut-off, and should be rare among trials whose gap had settled, regardless of the fact that both used the same surrogate. The decomposition theorem also does something to composite endpoints, which the field builds by hand and argues about by component. Any composite — alive, in remission and free of rescue at one year — separates cleanly into a part of the refutable kind and a part of the confirmable kind, and only the first part can be read at an interim analysis without a deadline being smuggled in. A data monitoring committee that stops a trial early for efficacy on a composite has stopped it on the safety part and assumed the rest. That is a quantity that can be computed from a protocol. It is not currently computed from anything.</p>
+    </div>
+  </section>
+
+  <!-- V. THE TEST -->
+  <section>
+    <div class="folio">
+      <h2><span class="numeral">V.</span>How It Could Be Proven — or Broken</h2>
+
+      <p class="margin-note">a candidate must be breakable, or it is merely poetry</p>
+      <p class="main">An intercognix candidate earns nothing until it names its own test. This one is retrospective first, and the data for it sits in trial registries and in the audits already published by people asking a neighbouring question.</p>
+
+      <div class="ledger">
+        <div class="yes">
+          <h3>What would support it</h3>
+          <p>Take the accelerated approvals granted on a response endpoint whose confirmatory outcome is now on the record, and alongside them the randomised trials in any area that reported a response-type primary endpoint and later reported a longer-horizon outcome on the same population. For each, recover the cumulative response curve in each arm — from the time-to-response data where published, from the scheduled-visit response rates where not — and compute the slope of the between-arm difference at the protocol's deadline, classifying each trial blind to its later outcome as opening, settled or closing. Support looks like this: the closing trials are the ones whose effect shrinks or vanishes on the longer horizon, the settled trials are the ones whose effect holds, and the classification discriminates within the surrogate class — among response-based approvals alone — where surrogacy, which every one of them shares, cannot. The prospective version is cheaper here than in most halls: it asks only that a sponsor pre-register the response curve at all scheduled visits and the slope at the deadline, and wait for the confirmatory trial it was going to run anyway.</p>
+        </div>
+        <div class="no">
+          <h3>What would break it</h3>
+          <p>It breaks first, and most likely, by collapse. If the slope at the deadline is nearly a monotone function of the duration of response the field already reports, or of the cure fraction a mixture model already estimates from the time-to-event data, then prefix refutability has renamed a measure in use and added nothing; this is the outcome to expect if a closing gap and a short duration of response are always the same patients seen from two sides. It breaks second on measurement: response is assessed at a handful of visits with wide intervals, and if the slope cannot be estimated at ordinary sample sizes with enough precision to classify a trial, the quantity exists and cannot be read. It breaks third, and most interestingly, on the disanalogy at its centre. In verification a deadline is a concession to the observer and carries no value of its own. In medicine sooner can be the whole benefit — an analgesic that works in an hour rather than a day has done what was asked — and if the closing trials replicate as well as the settled ones on a horizon the patients care about, then the deadline was not carrying a claim it failed to state, the clinic was right to price acceleration, and the theorem has nothing to teach it.</p>
+        </div>
+      </div>
+
+      <p class="margin-note">the honest status</p>
+      <p class="main">Note the narrowness. The claim is about endpoints of the confirmable kind that stand in for an eventual state — response for durable control, remission for cure, arrest for modification — and about a slope that should be read off them at the date the protocol chose. It says nothing about endpoints whose promise is speed, where the deadline is the claim and the theorem is silent. It makes no judgement about any drug: a closing gap is a real effect on a real quantity, and the candidate says only that it is an effect on a different quantity from the one the approval was written for. It offers no new endpoint, and it should not, since the theorem's whole content is that a finite trial has no other kind of endpoint available to it; what it offers is a number to attach to the deadline the trial was going to set regardless. And a caution about words: the verifiers' <em>safety</em> is not the trialists' safety, and the coincidence is a hazard rather than a bridge — a survival endpoint is a safety property in Lamport's sense and an efficacy endpoint in the clinic's, and a reader who conflates the two has understood neither hall. Until a set of response curves has been sloped at their deadlines and set against their confirmatory outcomes, this remains exactly what its stamp says: a candidate. A structural echo between two halls of the library, waiting for someone with the tools of both to walk the corridor.</p>
+    </div>
+  </section>
+
+  <!-- THE RECORD -->
+  <section>
+    <div class="record">
+      <div class="rec-head">Intercognix Specimen Record</div>
+      <dl>
+        <dt>Specimen</dt><dd>Intercognix № 0016 — The Deadline That Carries the Claim</dd>
+        <dt>Hall A</dt><dd>Concurrency theory and formal verification (Lamport's safety and liveness properties, the Alpern–Schneider decomposition, finite-prefix refutability, bounded liveness, the closed-and-dense characterisation)</dd>
+        <dt>Hall B</dt><dd>Drug discovery — disease definition, indication choice and endpoint selection (response and time-to-event endpoints, non-responder imputation, composite endpoints, follow-up duration, confirmatory trials after accelerated approval)</dd>
+        <dt>The bridge (X)</dt><dd>Prefix refutability — a claim about a course of events is either refutable by a finite watch and never confirmable, or confirmable and never refutable, and a deadline converts the second kind into the first; so a finite trial adjudicates only the first kind, and wherever the clinical claim is of the second, the endpoint is its image under a chosen deadline and the deadline carries whatever the endpoint no longer states</dd>
+        <dt>Emergent question</dt><dd>For endpoints of the confirmable kind, does the slope of the between-arm difference at the protocol's deadline — opening, settled or closing — predict which effects survive a longer horizon, where the endpoint's status as a surrogate does not?</dd>
+        <dt>Method</dt><dd>Surfaced via cross-domain semantic proximity; drafted with an advanced language model; framed and curated by the author</dd>
+        <dt>Status</dt><dd><strong>Candidate — unvalidated.</strong> Awaiting prior-art review and empirical testing</dd>
+        <dt>Entered</dt><dd>Anno 2026</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<aside class="circulate" data-share-text="Intercognix — what a theorem about running programs and the deadline on a clinical endpoint may share: a finite watch can refute one kind of claim and only confirm the other, and a deadline is where the rest of the claim goes. A candidate from the unknown between the known.">
+  <span class="c-label">Circulate this:</span><a data-net="linkedin" target="_blank" rel="noopener" href="#">LinkedIn</a><span class="sep">·</span><a data-net="x" target="_blank" rel="noopener" href="#">X</a><span class="sep">·</span><a data-net="facebook" target="_blank" rel="noopener" href="#">Facebook</a><span class="sep">·</span><a data-net="whatsapp" target="_blank" rel="noopener" href="#">WhatsApp</a><span class="sep">·</span><a data-net="reddit" target="_blank" rel="noopener" href="#">Reddit</a><span class="sep">·</span><a data-net="email" href="#">Email</a><span class="sep">·</span><button type="button" data-net="copy">Copy link</button>
+</aside>
+
+<footer class="site-colophon">
+  <p class="tag"><span class="w">Intercognix</span> — <em>the unknown between the known.</em></p>
+  <p class="legal">Coined by Jay Gontu · © 2026 Intercognix · Every specimen remains a candidate until validated.</p>
+  <p class="f-links">
+    <a href="index.html">The folio</a> ·
+    <a href="specimens.html">The Intercognix Catalogue</a> ·
+    <a href="#" rel="me">The original essay</a> ·
+    <a href="#" rel="me">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+  // Circulate: builds share links from data-share-text + the canonical URL.
+  (function(){
+    var el = document.querySelector('.circulate');
+    if (!el) return;
+    var canon = document.querySelector('link[rel="canonical"]');
+    var url = (canon && canon.href) || location.href;
+    var text = el.getAttribute('data-share-text') || document.title;
+    var eU = encodeURIComponent(url), eT = encodeURIComponent(text);
+    var hrefs = {
+      linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + eU,
+      x: 'https://twitter.com/intent/tweet?text=' + eT + '&url=' + eU,
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + eU,
+      whatsapp: 'https://wa.me/?text=' + eT + '%20' + eU,
+      reddit: 'https://www.reddit.com/submit?url=' + eU + '&title=' + eT,
+      email: 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + eT + '%0A%0A' + eU
+    };
+    el.querySelectorAll('a[data-net]').forEach(function(a){
+      a.href = hrefs[a.getAttribute('data-net')] || url;
+    });
+    var cp = el.querySelector('button[data-net="copy"]');
+    if (cp) cp.addEventListener('click', function(){
+      navigator.clipboard.writeText(url).then(function(){
+        cp.textContent = 'Copied';
+        setTimeout(function(){ cp.textContent = 'Copy link'; }, 2000);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
