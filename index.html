@@ -340,14 +340,18 @@
   }
   .engine-notice p{margin:0 0 1rem;font-size:1.02rem}
   .engine-notice p:last-child{margin-bottom:0}
+  /* a pressed-in plate rather than an underline: it survives wrapping on a narrow page */
   .engine-open{
-    display:inline-block;border:none;
-    font-family:'IM Fell English',serif;font-size:1.25rem;
-    color:var(--ink);background:linear-gradient(transparent 62%,var(--gold-bright) 62%);
-    padding:.1rem .2rem;
+    display:inline-block;border:1px solid var(--ink);
+    font-family:'IM Fell English',serif;font-size:1.2rem;line-height:1.3;
+    color:var(--ink);background:var(--gold-bright);
+    padding:.55rem 1.15rem;
+    box-shadow:3px 3px 0 rgba(43,33,23,.22);
+    transition:background .15s,color .15s,box-shadow .15s,transform .15s;
   }
-  .engine-open:hover{background:linear-gradient(transparent 0,var(--gold-bright) 0);color:var(--paper)}
-  .engine-open .arrow{color:var(--red-ink);margin-left:.4rem}
+  .engine-open:hover{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 rgba(43,33,23,.3)}
+  .engine-open:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(43,33,23,.3)}
+  .engine-open .arrow{color:inherit;margin-left:.5rem}
   .engine-who{font-style:italic;color:var(--ink-faded);font-size:.95rem}
   .engine-asks-lede{font-style:italic;color:var(--ink-faded);font-size:.95rem;margin-bottom:.55rem!important}
   .engine-asks{
@@ -362,6 +366,28 @@
     content:"—";position:absolute;left:0;color:var(--red-ink);
   }
   .engine-asks b{color:var(--ink);font-weight:600}
+  /* the short lines are a cadence, not paragraphs: they want to sit close together */
+  .engine-notice p.beat{margin-bottom:.3rem}
+  .engine-notice p.beat + p{margin-top:1rem}
+  .engine-notice h4{
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(1.12rem,2vw,1.3rem);
+    margin:1.6rem 0 .9rem;color:var(--ink);
+  }
+  .engine-ladder{margin-top:1.3rem!important;line-height:1.8}
+  .engine-ladder b{font-weight:600}
+  .engine-cta{margin-top:1.5rem!important}
+  .engine-url{
+    display:block;margin-top:.45rem;
+    font-style:italic;color:var(--ink-faded);font-size:.95rem;
+  }
+  .engine-free{font-style:italic;color:var(--ink-faded);font-size:.95rem}
+  .engine-rule{
+    border:0;border-top:1px solid var(--rule-soft);
+    margin:1.6rem 0 1.4rem;
+  }
+  .engine-yours{font-size:.98rem}
+  .engine-yours b{font-weight:600}
 
   /* ---------- specimen rail (wide screens) ---------- */
   .spec-rail{display:none}
@@ -595,6 +621,12 @@
       <p class="main">The practice above produces candidates, and candidates are recorded. Each specimen is entered with its two halls, its bridge, and the test that could break it. The most recent entries follow; the complete catalogue is kept separately, and it is built to grow.</p>
 
       <div class="specimen-list">
+        <a class="specimen-entry" href="intercognix-0024.html">
+          <span class="spec-no">Intercognix № 0024</span>
+          <span class="spec-title">The Quota Nobody Reached</span>
+          <span class="spec-desc">What a trawler that stops fishing in March with most of its year’s allowance still in the sea and a chemical series stopped by the first property to fail may share — a limit that never binds is never tested, so a tally of what stopped the work ranks the limits by their place in a queue rather than by their severity.</span>
+          <span class="spec-status">candidate · unvalidated</span>
+        </a>
         <a class="specimen-entry" href="intercognix-0023.html">
           <span class="spec-no">Intercognix № 0023</span>
           <span class="spec-title">The Part Nobody Was Watching</span>
@@ -751,18 +783,47 @@
       <p class="main">An expedition begins where the work has stopped: a problem stated as unresolved phenomena rather than as a hypothesis waiting for support. The engine reads across domains that have never cited one another, proposes the bridges, and then turns on them — each candidate met with the prior art that may already have answered it, the evidence for and against, and the experiment that would break it. What returns is a short list that survived the attack, and a plain account of why the rest did not.</p>
 
       <div class="engine-notice">
-        <span class="now sc">Now open · beta</span>
-        <h3>Don’t wait for serendipity. Invite it.</h3>
-        <p>The Intercognix engine is live and may be examined at once. Access is granted rather than sold: state the problem you would point it at, and what you are stuck on.</p>
-        <p><strong>Researchers</strong> with a question that has stopped moving, and <strong>AI enthusiasts</strong> who want to see how far a machine can be pushed into the unknown between the known, are both invited to submit a request.</p>
-        <p><a class="engine-open" href="https://app.intercognix.com/">app.intercognix.com<span class="arrow">→</span></a></p>
-        <p class="engine-asks-lede">What is asked in return is small, and none of it is a veto:</p>
+        <span class="now sc">Now open · research beta</span>
+        <h3>Bring us a problem that refuses to move.</h3>
+
+        <p>Intercognix is now open for beta exploration.</p>
+
+        <p>We are looking for researchers, scientists, engineers, and domain experts working on questions that have resisted the obvious paths — where the literature has stopped yielding useful directions, established explanations do not quite fit, or something simply refuses to add up.</p>
+
+        <p>Bring that problem to Intercognix.</p>
+
+        <p>The engine explores beyond the usual boundaries of a field, looking for connections, mechanisms, and candidate hypotheses that may not normally meet.</p>
+
+        <p class="beat">What it produces is not an answer.</p>
+        <p class="beat">It is something to examine.</p>
+
+        <h4>Then comes the part that matters: try to break it.</h4>
+
+        <p class="beat">Tell us what is wrong.</p>
+        <p class="beat">Tell us what is already known.</p>
+        <p class="beat">Tell us what does not survive contact with the field.</p>
+
+        <p>And if something makes you stop, look twice, or ask a question you were not asking before — tell us that too.</p>
+
+        <p class="engine-ladder">A failed hypothesis is useful.<br>
+          A plausible one is interesting.<br>
+          <b>One that survives serious scrutiny is something else entirely.</b></p>
+
+        <p class="engine-cta"><a class="engine-open" href="https://app.intercognix.com/">Challenge the Engine<span class="arrow">→</span></a>
+          <span class="engine-url">app.intercognix.com</span></p>
+
+        <p class="engine-free">Research beta access is currently provided at no charge.</p>
+
+        <hr class="engine-rule">
+
+        <h4>What we ask in return is simple.</h4>
+
         <ul class="engine-asks">
-          <li><b>Tell us what happened.</b> When you test something it gave you, say how it went — the failures above all, which are the more useful half. Each note asks separately whether we may quote it, with your name, without it, or not at all; the answer defaults to not at all, and a critical note you allow us to publish is worth more to us than a compliment.</li>
-          <li><b>Credit the method.</b> Where the work appears, say that the hypothesis was generated with Intercognix, in whatever form the venue uses for such things. A coinage earns its place by being used.</li>
-          <li><b>Give notice.</b> A fortnight before publication, so that anything still unprotected on the method side can be filed first. Nothing is withheld, and nothing is reviewed.</li>
+          <li><b>Put the result under real scrutiny.</b> If you investigate something Intercognix surfaces, share what happened — what held up, what failed, what was already known, and what the engine may have missed.</li>
+          <li><b>Credit Intercognix where it meaningfully contributes.</b> If an Intercognix-generated hypothesis, connection, or direction contributes materially to published work, acknowledge its use in the form appropriate to the venue.</li>
         </ul>
-        <p class="engine-who">Beyond that, no claim is made — not on your results, your data, the inventions they lead to, nor on when any of it appears. Where a hypothesis does hold up, we will ask whether you would tell that story properly, at length and in your own words, and there is something in it for you if you will. It is an invitation, offered after the fact. It is not the price of admission, and no one is turned away for declining it.</p>
+
+        <p class="engine-yours">Your <b>research, data, results, discoveries, and inventions remain yours.</b></p>
       </div>
     </div>
   </section>
