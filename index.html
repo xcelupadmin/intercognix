@@ -349,6 +349,19 @@
   .engine-open:hover{background:linear-gradient(transparent 0,var(--gold-bright) 0);color:var(--paper)}
   .engine-open .arrow{color:var(--red-ink);margin-left:.4rem}
   .engine-who{font-style:italic;color:var(--ink-faded);font-size:.95rem}
+  .engine-asks-lede{font-style:italic;color:var(--ink-faded);font-size:.95rem;margin-bottom:.55rem!important}
+  .engine-asks{
+    margin:0 0 1rem;padding:0;list-style:none;
+    font-size:.95rem;color:var(--ink-faded);
+  }
+  .engine-asks li{
+    padding-left:1.1rem;margin-bottom:.55rem;position:relative;line-height:1.55;
+  }
+  .engine-asks li:last-child{margin-bottom:0}
+  .engine-asks li::before{
+    content:"—";position:absolute;left:0;color:var(--red-ink);
+  }
+  .engine-asks b{color:var(--ink);font-weight:600}
 
   /* ---------- specimen rail (wide screens) ---------- */
   .spec-rail{display:none}
@@ -743,7 +756,13 @@
         <p>The Intercognix engine is live and may be examined at once. Access is granted rather than sold: state the problem you would point it at, and what you are stuck on.</p>
         <p><strong>Researchers</strong> with a question that has stopped moving, and <strong>AI enthusiasts</strong> who want to see how far a machine can be pushed into the unknown between the known, are both invited to submit a request.</p>
         <p><a class="engine-open" href="https://app.intercognix.com/">app.intercognix.com<span class="arrow">→</span></a></p>
-        <p class="engine-who">One thing is asked in return: tell us what happened when you tested something it gave you — the failures above all, which are the more useful half. No claim is made on your results, your data, or when you publish them.</p>
+        <p class="engine-asks-lede">What is asked in return is small, and none of it is a veto:</p>
+        <ul class="engine-asks">
+          <li><b>Tell us what happened.</b> When you test something it gave you, say how it went — the failures above all, which are the more useful half.</li>
+          <li><b>Credit the method.</b> Where the work appears, say that the hypothesis was generated with Intercognix, in whatever form the venue uses for such things. A coinage earns its place by being used.</li>
+          <li><b>Give notice.</b> A fortnight before publication, so that anything still unprotected on the method side can be filed first. Nothing is withheld, and nothing is reviewed.</li>
+        </ul>
+        <p class="engine-who">Beyond that, no claim is made — not on your results, your data, the inventions they lead to, nor on when any of it appears.</p>
       </div>
     </div>
   </section>
