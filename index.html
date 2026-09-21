@@ -322,6 +322,31 @@
   }
   @media(max-width:780px){.browse-all{grid-column:1}}
 
+  /* ---------- why this: a specification plate, read in a glance ---------- */
+  .engine-why-head{
+    grid-column:2;
+    font-family:'IM Fell English',serif;font-weight:400;
+    font-size:clamp(1.15rem,2.1vw,1.4rem);
+    margin:2.2rem 0 1rem;
+  }
+  .engine-why{
+    grid-column:2;margin:0;
+    border-top:1px solid var(--rule-soft);
+  }
+  .engine-why dt{
+    margin-top:.95rem;font-weight:600;color:var(--ink);
+    font-size:1rem;line-height:1.45;
+  }
+  .engine-why dd{
+    margin:.25rem 0 0;padding-bottom:.9rem;
+    border-bottom:1px solid var(--rule-soft);
+    color:var(--ink-faded);font-size:.95rem;line-height:1.55;
+  }
+  .engine-why dd em{font-style:italic;color:var(--ink)}
+  @media(max-width:780px){
+    .engine-why-head,.engine-why{grid-column:1}
+  }
+
   /* ---------- the engine: a notice, set apart like a pasted-in broadside ---------- */
   .engine-notice{
     grid-column:2;margin-top:2rem;
@@ -781,6 +806,27 @@
       <p class="main">Every candidate in the catalogue was found the same way. Not by a reader who happened to hold two literatures at once — that is serendipity, and serendipity cannot be commissioned — but by a machine built to hold thousands of them at once, and to go looking on purpose. That machine now exists outside these pages.</p>
 
       <p class="main">An expedition begins where the work has stopped: a problem stated as unresolved phenomena rather than as a hypothesis waiting for support. The engine reads across domains that have never cited one another, proposes the bridges, and then turns on them — each candidate met with the prior art that may already have answered it, the evidence for and against, and the experiment that would break it. What returns is a short list that survived the attack, and a plain account of why the rest did not.</p>
+
+      <h3 class="engine-why-head">Why this, and not a better literature search</h3>
+      <dl class="engine-why">
+        <dt>It looks where your field does not.</dt>
+        <dd>The search is aimed at literatures that have never cited yours. A better search of your own field returns what your field already believes.</dd>
+
+        <dt>It is blinded on purpose.</dt>
+        <dd>The vocabulary of your field is withheld from the part of the engine that proposes bridges, so it cannot recognise your problem and hand your own answer back to you as a discovery.</dd>
+
+        <dt>Every candidate is attacked before you see it.</dt>
+        <dd>An independent evidence audit, then an adversarial review that tries to kill it. What reaches you is what survived, and the account of why the rest did not.</dd>
+
+        <dt>It checks what is already known.</dt>
+        <dd>A connection someone published in 1974 comes back marked as prior art, not sold to you as new — and the same ground is not searched twice.</dd>
+
+        <dt>It says what it did not check.</dt>
+        <dd><em>Not found</em> and <em>not looked for</em> are different words here, and it uses the right one. Silence is never dressed up as absence of evidence.</dd>
+
+        <dt>Every candidate carries the experiment that would break it.</dt>
+        <dd>A bridge with no test that could refute it does not leave the engine. You are given something to do at the bench, not something to agree with.</dd>
+      </dl>
 
       <div class="engine-notice">
         <span class="now sc">Now open · research beta</span>
